@@ -395,6 +395,9 @@ class HDFS(object):
     def bootstrap_standby(self):
         self._hdfs('namenode', '-bootstrapStandby', '-noninteractive', '-skipSharedEditsCheck')
 
+    def hdfs.transition_to_active(self, serviceid):
+        self._hdfs('haadmin', '-transitionToActive', serviceid)
+
     def format_namenode(self):
         if unitdata.kv().get('hdfs.namenode.formatted'):
             return
